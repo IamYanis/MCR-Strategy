@@ -20,8 +20,18 @@ def cagr(cumulative, dates):
     return cumulative.iloc[-1] ** (1 / years) - 1
 
 
-def sharpe_ratio(annual_return, annual_volatility):
-    return annual_return / annual_volatility
+def sharpe_ratio(returns, risk_free_rate=0.0):
+    """
+    Calcule un Sharpe ratio annualisé à partir des rendements journaliers.
+    """
+
+    excess_returns = returns - risk_free_rate / TRADING_DAYS
+
+    return (
+        excess_returns.mean()
+        / excess_returns.std()
+        * np.sqrt(TRADING_DAYS)
+    )
 
 
 def max_drawdown(cumulative):

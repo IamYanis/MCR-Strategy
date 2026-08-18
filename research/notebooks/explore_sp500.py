@@ -88,13 +88,11 @@ strategy_cagr = cagr(
 )
 
 buy_hold_sharpe = sharpe_ratio(
-    buy_hold_annual_return,
-    buy_hold_volatility
+    sp500["Return"]
 )
 
 strategy_sharpe = sharpe_ratio(
-    strategy_annual_return,
-    strategy_volatility
+    sp500["Strategy_Return"]
 )
 
 print("\n--- PERFORMANCE ---")
