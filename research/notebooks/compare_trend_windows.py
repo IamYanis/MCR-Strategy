@@ -58,8 +58,7 @@ for window in windows:
     )
 
     sharpe = sharpe_ratio(
-        annual_return,
-        volatility
+        data["Strategy_Return"]
     )
 
     drawdown = max_drawdown(
